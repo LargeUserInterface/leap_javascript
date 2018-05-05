@@ -38,7 +38,18 @@ setInterval(function() {
           // console.log(lastThreePositions[0])
           // console.log(lastThreePositions)
           checkMovement(lastThreePositions);
-}, 200);
+}, 400);
+
+function toggle() {
+    var x = document.getElementById("sidebar");
+    if (x.style.display === "none") {
+        console.log("display");
+        x.style.display = "block";
+    } else {
+        console.log("hide");
+        x.style.display = "none";
+    }
+}
 
 function checkMovement(lastThreePositions) {
     var fingers_one = lastThreePositions[0];
@@ -48,7 +59,8 @@ function checkMovement(lastThreePositions) {
     // console.log(fingers_one[2][0], " | ", fingers_two[2][0], " | ", fingers_three[2][0])
     for (var i = 0; i < fingers_one.length; i++){
        if(fingers_one[2][0] < fingers_two[2][0] && fingers_two[2][0] < fingers_three[2][0]) {
-          console.log("moved left to right");
+          toggle();
+          console.log("hit");
        }
     }
 }
